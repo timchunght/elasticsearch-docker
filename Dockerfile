@@ -1,4 +1,7 @@
-FROM tutum/curl:trusty
+FROM ubuntu:trusty
+MAINTAINER Timothy Chung <timchunght@gmail.com>
+
+RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/lib/apt/lists
 
 RUN curl http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add - && \
     echo 'deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main' >> /etc/apt/sources.list && \
